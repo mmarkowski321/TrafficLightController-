@@ -1,4 +1,4 @@
-package pl.projekt.backend;
+package pl.markowski.milosz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
