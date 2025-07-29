@@ -1,44 +1,47 @@
 package pl.projekt.models;
 
-public class Pedestrian {
-    private final String id;
-    private State state = State.WAITING;
-    private Direction direction;
-    private Location location;
-    private final int travelDurationSec = 5;
+public class Pedestrian extends MovingObject{
+    private PedestrianDestination destination;
+    private PedestrianLocation location;
+    private final int travelDurationSec = 10;
 
-    public Pedestrian(String id, State state, Direction direction, Location location) {
-        this.id = id;
-        this.state = state;
-        this.direction = direction;
+    public Pedestrian(String id, State state, PedestrianDestination destination, PedestrianLocation location) {
+        super(id, state);
+        this.destination = destination;
         this.location = location;
     }
 
-    public String getId() {
-        return id;
+    public enum PedestrianDestination {
+        NORTH_EAST,
+        SOUTH_EAST,
+        SOUTH_WEST,
+        NORTH_WEST;
     }
 
-    public State getState() {
-        return state;
+    public enum PedestrianLocation {
+        NORTH_EAST,
+        SOUTH_EAST,
+        SOUTH_WEST,
+        NORTH_WEST;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public PedestrianDestination getDestination() {
+        return destination;
     }
 
-    public Direction getDirection() {
-        return direction;
+    public void setDestination(PedestrianDestination destination) {
+        this.destination = destination;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-
-    public Location getLocation() {
+    public PedestrianLocation getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(PedestrianLocation location) {
         this.location = location;
+    }
+
+    public int getTravelDurationSec() {
+        return travelDurationSec;
     }
 }
